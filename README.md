@@ -8,6 +8,8 @@ https://gloriatheanimator.gumroad.com/l/QhzwB
 Using shader noise function from:
 https://github.com/stegu/webgl-noise
 
+Hair model from [VRoid Studio](https://vroid.com/en/studio)
+
 ## Preview
 <img style="margin-right: 30px;" align="left" src="images/preview.png"/>
 
