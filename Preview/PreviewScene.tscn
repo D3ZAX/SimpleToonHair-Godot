@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsruxcywj2a1v"]
+
+[ext_resource type="Material" uid="uid://0tkex7hayxfb" path="res://SimpleToonHair/Material/SimpleToonHair.tres" id="1_ear8a"]
+[ext_resource type="Material" uid="uid://7jvpcwxl0qt6" path="res://SimpleToonHair/Material/SimpleToonHairShadow.tres" id="2_6dtqq"]
+[ext_resource type="PackedScene" uid="uid://dr5law14plumj" path="res://Preview/Model/Hair.tscn" id="3_7wudv"]
+
+[sub_resource type="Environment" id="Environment_jmxcg"]
+ambient_light_source = 1
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_17ede"]
+
+[node name="PreviewScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jmxcg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.774291, 0, 0)
+material_override = ExtResource("1_ear8a")
+mesh = SubResource("SphereMesh_17ede")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.66016, 0, 0)
+material_override = ExtResource("2_6dtqq")
+mesh = SubResource("SphereMesh_17ede")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.685679, 0.727904, 0, -0.727904, -0.685679, 0, 2.16767, -3.89369)
+
+[node name="Hair" parent="." instance=ExtResource("3_7wudv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51142, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.634852, 0, 0.772634, 0, 1, 0, -0.772634, 0, -0.634852, 0.585879, 0, -0.717142)

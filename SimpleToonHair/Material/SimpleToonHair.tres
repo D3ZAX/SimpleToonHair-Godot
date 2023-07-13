@@ -1,0 +1,46 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://0tkex7hayxfb"]
+
+[ext_resource type="Shader" path="res://SimpleToonHair/Sharder/SimpleToonHairShader.gdshader" id="1_ssyvx"]
+[ext_resource type="Texture2D" uid="uid://b67ndcx5r0aqv" path="res://SimpleToonHair/Texture/highlight_gradient_1.tres" id="2_2ofcx"]
+[ext_resource type="Texture2D" uid="uid://bv56cvep2nd76" path="res://SimpleToonHair/Texture/highlight_gradient_2.tres" id="3_mgybu"]
+[ext_resource type="Texture2D" uid="uid://dkj6ypppbbpv2" path="res://SimpleToonHair/Texture/normal_map_strength.tres" id="4_j77um"]
+
+[sub_resource type="Gradient" id="Gradient_e2w52"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.588235, 0.376471, 0.164706, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sjsym"]
+gradient = SubResource("Gradient_e2w52")
+width = 1
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ssyvx")
+shader_parameter/_sharpness = 0.0
+shader_parameter/_thinness = 0.0
+shader_parameter/_density = 15.7
+shader_parameter/_smoothness = -0.9
+shader_parameter/_blur = 0.6
+shader_parameter/_height = 0.0
+shader_parameter/_transparency_0 = 0.0
+shader_parameter/_spaces = -25.6
+shader_parameter/_detail = 1.0
+shader_parameter/_transparency_1 = 4.1
+shader_parameter/_overlay_shadow = 0.0
+shader_parameter/_overlaypure_color = 0.0
+shader_parameter/_overlay_hue = 0.55
+shader_parameter/_brightness = 0.4
+shader_parameter/_overlay_saturation = 0.9
+shader_parameter/_shadow_hue = 0.49
+shader_parameter/_shadow_staturation = 1.2
+shader_parameter/_shadow_value = 1.4
+shader_parameter/_shadow_size = 0.57
+shader_parameter/_shadow_opacity = 1.0
+shader_parameter/_shadow_transition = 0.001
+shader_parameter/_smooth_shadow = 0.0
+shader_parameter/_rotate_90_degrees = 0.0
+shader_parameter/_normal_strength = 0.15
+shader_parameter/_base_color = SubResource("GradientTexture1D_sjsym")
+shader_parameter/_normal_map = ExtResource("4_j77um")
+shader_parameter/_highlight_gradient_1 = ExtResource("2_2ofcx")
+shader_parameter/_highlight_gradient_2 = ExtResource("3_mgybu")

@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://bv56cvep2nd76"]
+
+[ext_resource type="Gradient" uid="uid://lh2n6j2u8p02" path="res://SimpleToonHair/Texture/gradient_res_2.tres" id="1_tt352"]
+
+[resource]
+gradient = ExtResource("1_tt352")
+width = 128

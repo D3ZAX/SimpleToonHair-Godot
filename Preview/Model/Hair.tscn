@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr5law14plumj"]
+
+[ext_resource type="PackedScene" uid="uid://baj7alg8pti61" path="res://Preview/Model/Hair.glb" id="1_rleau"]
+[ext_resource type="Material" uid="uid://0tkex7hayxfb" path="res://SimpleToonHair/Material/SimpleToonHair.tres" id="2_o7764"]
+
+[node name="Hair" instance=ExtResource("1_rleau")]
+
+[node name="Hair_002" parent="." index="0"]
+material_override = ExtResource("2_o7764")
