@@ -2,8 +2,7 @@
 Simple toon hair shader project for Godot engine, project need engine version 4.1
 Shader supporting diffuse and shadow texture.
 
-Inspired by "GloriaTheAnimator's Ultimate Hair Shader for blender"
-https://gloriatheanimator.gumroad.com/l/QhzwB
+Inspired by [GloriaTheAnimator's Ultimate Hair Shader for blender](https://gloriatheanimator.gumroad.com/l/QhzwB)
 
 Using shader noise function from:
 https://github.com/stegu/webgl-noise
