@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://k1tfvnswrhra"]
+
+[ext_resource type="Material" uid="uid://bxp2rct0uwfyp" path="res://ToonShader/Material/Toon.tres" id="1_44qw0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_65va8"]
+
+[sub_resource type="Environment" id="Environment_oebgv"]
+ambient_light_source = 1
+
+[node name="ToonShader" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_44qw0")
+mesh = SubResource("SphereMesh_65va8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.739819, 0.672806, 0, -0.672806, 0.739819, 0, 2.24551, 2.04542)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oebgv")

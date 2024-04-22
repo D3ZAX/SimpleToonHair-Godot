@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dr5law14plumj" path="res://Preview/Model/Hair.tscn" id="3_7wudv"]
 
 [sub_resource type="Environment" id="Environment_jmxcg"]
-ambient_light_source = 1
 glow_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_17ede"]

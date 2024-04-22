@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://c4wwvjrbq4r8d"]
+
+[ext_resource type="Gradient" uid="uid://c0dcq56hwg3c1" path="res://ToonShader/Texture/ramp_gradient.tres" id="1_fmp31"]
+
+[resource]
+gradient = ExtResource("1_fmp31")
+width = 64
