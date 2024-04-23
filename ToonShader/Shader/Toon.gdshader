@@ -4,6 +4,8 @@ shader_type spatial;
 
 uniform vec4 albedo : source_color = vec4(1.0f);
 uniform sampler2D albedo_texture : source_color;
+uniform vec4 shadow_color : source_color = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+uniform sampler2D shadow_texture : source_color;
 uniform bool clamp_diffuse_to_max = false;
 
 uniform int cuts : hint_range(0, 8) = 0;
@@ -29,6 +31,7 @@ uniform float border_width = 0.01f;
 
 varying vec3 vertex_pos;
 varying vec3 normal;
+varying vec3 albedo_shadow;
 
 float split_specular(float specular) {
 	return step(0.5f, specular);
@@ -41,6 +44,7 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
+	albedo_shadow = shadow_color.rgb * texture(shadow_texture, UV).rgb;
 }
 
 void light() {
@@ -70,11 +74,14 @@ void light() {
 	}
 	
 	// Apply diffuse result to different styles.
-	vec3 diffuse = ALBEDO.rgb * LIGHT_COLOR / PI;
+	vec3 diffuse = ALBEDO * LIGHT_COLOR / PI;
 	if (use_ramp) {
 		diffuse *= texture(ramp, vec2(clamp(diffuse_stepped * (1.0f - border), 0.01f, 0.99f), 0.0f)).rgb;
+		float r = clamp(diffuse_stepped, 0.0f, 1.0f);
+		diffuse *= mix(albedo_shadow, vec3(1.0f), r);
 	} else {
-		diffuse *= diffuse_stepped * (1.0f - border);
+		float r = clamp(diffuse_stepped * (1.0f - border), 0.0f, 1.0f);
+		diffuse *= mix(albedo_shadow, vec3(1.0f), r);
 	}
 	
 	if (clamp_diffuse_to_max) {
