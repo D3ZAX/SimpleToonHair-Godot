@@ -32,6 +32,7 @@ uniform float border_width = 0.01f;
 varying vec3 vertex_pos;
 varying vec3 normal;
 varying vec3 albedo_shadow;
+varying vec3 specular_tex;
 
 float split_specular(float specular) {
 	return step(0.5f, specular);
@@ -45,6 +46,10 @@ void vertex() {
 void fragment() {
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
 	albedo_shadow = shadow_color.rgb * texture(shadow_texture, UV).rgb;
+	
+	if (use_specular) {
+		specular_tex = texture(specular_map, UV).rgb;
+	}
 }
 
 void light() {
@@ -96,7 +101,7 @@ void light() {
 		vec3 H = normalize(LIGHT + VIEW);
 		float NdotH = dot(NORMAL, H);
 		float specular_amount = max(pow(NdotH, specular_shininess*specular_shininess), 0.0f)
-							    * texture(specular_map, UV).r
+							    * specular_tex.r
 								* attenuation;
 		specular_amount = split_specular(specular_amount);
 		SPECULAR_LIGHT += specular_strength * specular_amount * LIGHT_COLOR;
